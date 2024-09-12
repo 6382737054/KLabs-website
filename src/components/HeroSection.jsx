@@ -13,7 +13,7 @@ const HeroSection = () => {
   }, [sectionInterval]);
 
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-between h-screen bg-black overflow-hidden">
+    <section className="relative flex flex-col md:flex-row items-center justify-center h-screen bg-black overflow-hidden">
       {/* Hero Section 1 */}
       <div className={`absolute top-0 left-0 w-full h-full flex ${activeSection === 0 ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
         {/* Left Section with Text Content */}
@@ -40,28 +40,24 @@ const HeroSection = () => {
         </div>
 
         {/* Right Section with Image */}
-        <div className="relative md:w-1/2">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img
-              src="Images/heroimg2.png" // Replace with your actual image path
-              alt="Hero Graphic"
-              className="w-3/4 h-auto object-cover" // Adjusted dimensions
-            />
-          </div>
+        <div className="relative md:w-1/2 flex items-center justify-center">
+          <img
+            src="Images/heroimg2.png" // Replace with your actual image path
+            alt="Hero Graphic"
+            className="object-contain w-full h-full" // Ensure the image scales properly
+          />
         </div>
       </div>
 
       {/* Hero Section 2 */}
       <div className={`absolute top-0 left-0 w-full h-full flex ${activeSection === 1 ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
         {/* Left Section with Image */}
-        <div className="relative md:w-1/2">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img
-              src="Images/heroimg1.png" // Replace with your actual image path
-              alt="Hero Graphic"
-              className="w-3/4 h-auto object-cover" // Adjusted dimensions
-            />
-          </div>
+        <div className="relative md:w-1/2 flex items-center justify-center">
+          <img
+            src="Images/heroimg1.png" // Replace with your actual image path
+            alt="Hero Graphic"
+            className="object-contain w-full h-full" // Ensure the image scales properly
+          />
         </div>
 
         {/* Right Section with Text Content */}
