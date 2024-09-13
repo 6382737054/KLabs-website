@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import OurWorks from './components/OurWorks';
+import AboutUsSection from './components/AboutUsSection';
+
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       
       {/* Other sections */}
       <HeroSection />
-      <OurWorks/>
+      <AboutUsSection/>
+     
     </div>
   );
 }
