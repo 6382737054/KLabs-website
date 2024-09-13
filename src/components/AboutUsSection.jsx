@@ -86,7 +86,7 @@ const AboutUsSection = () => {
               <button
                 key={key}
                 onClick={() => handleContentChange(key)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-transform duration-300 ease-in-out transform ${activeContent === key ? 'bg-gradient-to-r from-orange-300 to-orange-500 text-white shadow-lg' : 'bg-gradient-to-r from-orange-100 to-orange-300 text-gray-800 hover:from-orange-200 hover:to-orange-400'} hover:scale-105`}
+                className={`px-6 py-3 text-lg font-semibold rounded-lg transition-transform duration-300 ease-in-out ${activeContent === key ? 'bg-gradient-to-r from-orange-300 to-orange-500 text-white shadow-lg' : 'bg-gradient-to-r from-orange-100 to-orange-300 text-gray-800 hover:from-orange-200 hover:to-orange-400'} hover:scale-105`}
               >
                 {content[key].title}
               </button>

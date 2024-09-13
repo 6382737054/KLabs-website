@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDesktop, faServer, faUsers, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import CountUp from 'react-countup';
 
 const HeroSection = () => {
   return (
@@ -32,40 +35,34 @@ const HeroSection = () => {
       {/* Client Card Section */}
       <div className="relative w-full md:w-1/3 flex items-center justify-center px-4 md:px-8 py-10 md:py-16 mt-6 md:mt-12">
         <div className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 md:p-8 shadow-2xl border border-gray-300 w-full max-w-sm min-h-[500px] flex flex-col items-center justify-center space-y-8 hover:scale-105 hover:bg-[wheat] transition-transform duration-300">
-          <h3 className="text-xl md:text-2xl font-bold mb-4 text-center text-gray-800">Meet Some of Our Clients</h3>
-          <div className="flex flex-col items-center w-full space-y-6">
-            <div className="flex flex-col items-center space-y-2">
-              <img
-                src="/Images/sipcot.png"
-                alt="Client 1"
-                className="w-20 h-14 object-contain transform transition-transform duration-300 hover:scale-110"
-              />
-              <p className="text-gray-700 font-medium text-lg">Sipcot</p>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <img
-                src="/Images/tngov.png"
-                alt="Client 2"
-                className="w-20 h-14 object-contain transform transition-transform duration-300 hover:scale-110"
-              />
-              <p className="text-gray-700 font-medium text-lg">Government of Tamil Nadu</p>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <img
-                src="/Images/sdat.png"
-                alt="Client 3"
-                className="w-24 h-16 object-contain transform transition-transform duration-300 hover:scale-110"
-              />
-              <p className="text-gray-700 font-medium text-lg">Sports Development Authority</p>
-            </div>
+          {/* Counter-up Components with Icons */}
+          <div className="text-center flex flex-col items-center">
+            <FontAwesomeIcon icon={faDesktop} className="text-4xl text-gray-800 mb-2" />
+            <h4 className="text-3xl font-bold text-gray-800">
+              <CountUp end={200} duration={2} />+
+            </h4>
+            <p className="text-gray-600">Total Designs</p>
           </div>
-          <div className="text-center mt-6">
-            <a
-              href="/clients"
-              className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg shadow-lg hover:bg-orange-600 hover:scale-105 transition-transform duration-300"
-            >
-              Explore Our Clients
-            </a>
+          <div className="text-center flex flex-col items-center">
+            <FontAwesomeIcon icon={faServer} className="text-4xl text-gray-800 mb-2" />
+            <h4 className="text-3xl font-bold text-gray-800">
+              <CountUp end={100} duration={2} />+
+            </h4>
+            <p className="text-gray-600">Sites Hosted</p>
+          </div>
+          <div className="text-center flex flex-col items-center">
+            <FontAwesomeIcon icon={faUsers} className="text-4xl text-gray-800 mb-2" />
+            <h4 className="text-3xl font-bold text-gray-800">
+              <CountUp end={80} duration={2} />+
+            </h4>
+            <p className="text-gray-600">Clients</p>
+          </div>
+          <div className="text-center flex flex-col items-center">
+            <FontAwesomeIcon icon={faCalendarAlt} className="text-4xl text-gray-800 mb-2" />
+            <h4 className="text-3xl font-bold text-gray-800">
+              <CountUp end={18} duration={2} />+
+            </h4>
+            <p className="text-gray-600">Years Of Experience</p>
           </div>
         </div>
       </div>
