@@ -1,82 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const HeroSection = () => {
-  const [activeSection, setActiveSection] = useState(0); // 0 for first section, 1 for second section
-  const sectionInterval = 5000; // Interval time in milliseconds (5 seconds)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSection(prevSection => (prevSection === 0 ? 1 : 0));
-    }, sectionInterval);
-
-    return () => clearInterval(interval);
-  }, [sectionInterval]);
-
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-center h-screen bg-black overflow-hidden">
-      {/* Hero Section 1 */}
-      <div className={`absolute top-0 left-0 w-full h-full flex ${activeSection === 0 ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
-        {/* Left Section with Text Content */}
-        <div className="relative md:w-1/2 flex items-center justify-center text-left px-4 md:px-10 lg:px-20">
-          <div className="space-y-6 md:space-y-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight text-white animate-fade-in">
-              K Labs
-            </h1>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-orange-200 animate-fade-in delay-200">
-              Transform Your Business with <br className="hidden md:block" /> Cutting-Edge Technology
+    <section className="relative flex flex-col md:flex-row items-center justify-between min-h-screen bg-white overflow-hidden">
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-white opacity-90"></div>
+
+      {/* Hero Section */}
+      <div className="relative w-full md:w-2/3 flex flex-col md:flex-row items-center md:items-start justify-start px-4 md:px-16 lg:px-32 py-10 md:py-16 mt-16 md:mt-0">
+        <div className="relative text-left w-full">
+          <div className="space-y-4 md:space-y-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-1 leading-tight text-orange-500">
+              Transform Your Business <br className="hidden md:block" /> with Cutting-Edge Technology
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl mb-6 leading-relaxed text-white animate-fade-in delay-400">
+            <div className="w-20 h-1 bg-orange-500 mb-3"></div>
+            <p className="text-lg md:text-xl lg:text-2xl mb-3 leading-relaxed text-gray-700">
               At K Labs, we empower your growth with uniquely tailored software solutions.
             </p>
-            <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 animate-fade-in delay-600">
-              <button className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition">
-                Get Started
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+              <button className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 hover:scale-105 transition-transform duration-300">
+                Our Works
               </button>
-              <button className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg shadow-md hover:bg-white hover:text-gray-800 transition">
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Section with Image */}
-        <div className="relative md:w-1/2 flex items-center justify-center">
-          <img
-            src="Images/heroimg2.png" // Replace with your actual image path
-            alt="Hero Graphic"
-            className="object-contain w-full h-full" // Ensure the image scales properly
-          />
-        </div>
-      </div>
-
-      {/* Hero Section 2 */}
-      <div className={`absolute top-0 left-0 w-full h-full flex ${activeSection === 1 ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
-        {/* Left Section with Image */}
-        <div className="relative md:w-1/2 flex items-center justify-center">
-          <img
-            src="Images/heroimg1.png" // Replace with your actual image path
-            alt="Hero Graphic"
-            className="object-contain w-full h-full" // Ensure the image scales properly
-          />
-        </div>
-
-        {/* Right Section with Text Content */}
-        <div className="relative md:w-1/2 flex items-center justify-center text-left px-4 md:px-10 lg:px-20">
-          <div className="space-y-6 md:space-y-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight text-white animate-fade-in">
-              K Labs
-            </h1>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-orange-200 animate-fade-in delay-200">
-              Transform Your Business with <br className="hidden md:block" /> Cutting-Edge Technology
-            </h2>
-            <p className="text-lg md:text-xl lg:text-2xl mb-6 leading-relaxed text-white animate-fade-in delay-400">
-              At K Labs, we empower your growth with uniquely tailored software solutions.
-            </p>
-            <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 animate-fade-in delay-600">
-              <button className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition">
-                Get Started
-              </button>
-              <button className="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg shadow-md hover:bg-white hover:text-gray-800 transition">
+              <button className="px-6 py-3 bg-transparent border-2 border-gray-800 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-800 hover:text-white hover:scale-105 transition-transform duration-300">
                 Learn More
               </button>
             </div>
@@ -84,32 +29,33 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Keyframes for animations */}
-      <style jsx>{`
-        @keyframes fade-in {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1s ease-out forwards;
-        }
-        .animate-fade-in.delay-200 {
-          animation-delay: 200ms;
-        }
-        .animate-fade-in.delay-400 {
-          animation-delay: 400ms;
-        }
-        .animate-fade-in.delay-600 {
-          animation-delay: 600ms;
-        }
-      `}</style>
+      {/* Client Card Section */}
+      <div className="relative w-full md:w-1/3 flex items-center justify-center px-4 md:px-8 py-10 md:py-16 mt-12 md:mt-24">
+        <div className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-300 w-full max-w-md min-h-[500px] flex flex-col items-center justify-start space-y-8">
+          <h3 className="text-xl md:text-2xl font-bold mb-4 text-center text-gray-800">Meet Some of Our Clients</h3>
+          <div className="flex flex-col items-center w-full space-y-8">
+            {/* Client Logos and Names */}
+            <div className="flex flex-col items-center space-y-4">
+              <img src="/Images/sipcot.png" alt="Client 1" className="w-24 h-18 object-contain transform transition-transform duration-300 hover:scale-110" />
+              <p className="text-gray-700 font-medium">SIPCOT</p>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <img src="/Images/tngov.png" alt="Client 2" className="w-24 h-18 object-contain transform transition-transform duration-300 hover:scale-110" />
+              <p className="text-gray-700 font-medium">Goverment of Tamil Nadu</p>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <img src="/Images/sdat.png" alt="Client 3" className="w-32 h-24 object-contain transform transition-transform duration-300 hover:scale-110" />
+              <p className="text-gray-700 font-medium">Sports Development Authority</p>
+            </div>
+            {/* Add more client logos and names as needed */}
+          </div>
+          <div className="text-center mt-6">
+            <a href="/clients" className="px-8 py-4 bg-orange-500 text-white font-semibold rounded-lg shadow-lg hover:bg-orange-600 hover:scale-105 transition-transform duration-300">
+              Explore Our Clients
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

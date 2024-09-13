@@ -37,7 +37,7 @@ const Navbar = () => {
               href="#services"
               className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
-              Services
+              About us
             </a>
 
             {/* Dropdown for Our Horizontals */}
@@ -169,7 +169,7 @@ const Navbar = () => {
             href="#services"
             className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
-            Services
+            About us
           </a>
 
           {/* Dropdown for Our Horizontals (Mobile) */}
