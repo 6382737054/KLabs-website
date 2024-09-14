@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
+import React, { useState, useEffect, useRef } from 'react';
 
 const AboutUsSection = () => {
-  AOS.init({ duration: 1000 });
-
   const [activeContent, setActiveContent] = useState('values');
   const [animationClass, setAnimationClass] = useState('');
+  const sectionRef = useRef(null);
 
+  // Content data for different sections
   const content = {
     values: {
       title: "Our Values",
@@ -61,22 +59,52 @@ const AboutUsSection = () => {
     }
   };
 
+  // Handle content change with smooth transition effect
   const handleContentChange = (key) => {
-    setAnimationClass('fade-in');
+    setAnimationClass('animate-fadeIn');
     setActiveContent(key);
-    setTimeout(() => setAnimationClass(''), 500); // match duration with CSS animation
+    setTimeout(() => setAnimationClass(''), 500); // Reset animation class after 500ms
   };
 
+  // Use IntersectionObserver to add animation class when in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimationClass('animate-fadeIn');
+          observer.disconnect(); // Stop observing once the section is in view
+        }
+      },
+      {
+        threshold: 0.1 // Trigger animation when 10% of the section is in view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="about" className="relative bg-gray-50 py-16">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+    <section id="about-us-section" ref={sectionRef} className={`relative bg-gray-50 py-16 ${animationClass}`}>
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
         {/* Content Area */}
         <div className="flex flex-col items-center">
           {/* Static Header and Description */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">About Us</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              KLabs Technology & Solutions (P) Ltd India has taken a challenging task across the globe and align the clients with the best of best solutions ever. So far, we took up many impossible tasks to find - one good fine possibility for completing it. Our Crown is filled up with lot of remarkable feathers especially TN Govt projects because We take a security-first approach to deliver a best-in class software's and IT operations that are integrated with innovative IT solutions and Fast Response Team with Effective Problem - Solving Skills. This is the one of the main reasons why we always been called over and over to handle the important projects across our country. KLabs has a branch in most of the major districts in TN and key states of India.
+          <div className="text-center mb-12 max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">About Us</h2>
+            <p className="text-lg text-gray-600 leading-relaxed mx-4 md:mx-8 lg:mx-12 xl:mx-16">
+              KLabs Technology & Solutions (P) Ltd India is a pioneering force in the IT industry, taking on complex and challenging tasks across the globe. We are renowned for our commitment to delivering cutting-edge solutions tailored to the unique needs of our clients. Our expertise encompasses a broad spectrum of IT services, from high-security software development to advanced IT operations. Our approach is built on a foundation of integrity, innovation, and excellence, ensuring that we consistently meet and exceed the expectations of our clients.
+              <br /><br />
+              Since our inception, we have undertaken numerous high-profile projects, including significant government contracts, demonstrating our ability to handle large-scale and critical assignments with precision and efficiency. Our team of dedicated professionals employs state-of-the-art technology and best practices to ensure the highest standards of quality and security. We are proud of our track record and continue to push the boundaries of what is possible in the IT landscape.
+              <br /><br />
+              
             </p>
           </div>
 
@@ -94,12 +122,10 @@ const AboutUsSection = () => {
           </div>
 
           {/* Dynamic Content */}
-          <div className={`bg-white shadow-lg rounded-lg p-8 border border-gray-200 max-w-4xl mx-auto transition-opacity duration-500 ${animationClass}`}>
+          <div className={`bg-gradient-to-r from-white via-gray-100 to-gray-200 shadow-lg rounded-lg p-8 border border-gray-200 max-w-4xl mx-auto transition-opacity duration-500 ${animationClass}`}>
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">{content[activeContent].title}</h3>
             <div className="text-gray-600 leading-relaxed">
-              {typeof content[activeContent].description === 'string'
-                ? content[activeContent].description
-                : content[activeContent].description}
+              {content[activeContent].description}
             </div>
           </div>
         </div>

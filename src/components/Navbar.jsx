@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-scroll'; // Import Link from react-scroll
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,18 +28,22 @@ const Navbar = () => {
 
           {/* Nav Links */}
           <nav className="hidden md:flex space-x-8 items-center">
-            <a
-              href="#home"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
+            <Link
+              to="home" // Smooth scroll to "home" section
+              smooth={true}
+              duration={500}
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
               Home
-            </a>
-            <a
-              href="#services"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
+            </Link>
+            <Link
+              to="our-services-section" // Smooth scroll to "Our Services" section
+              smooth={true}
+              duration={500}
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
-              About us
-            </a>
+              Our Services
+            </Link>
 
             {/* Dropdown for Our Horizontals */}
             <div className="relative">
@@ -108,18 +113,22 @@ const Navbar = () => {
               )}
             </div>
 
-            <a
-              href="#about"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
+            <Link
+              to="about" // Smooth scroll to "about" section
+              smooth={true}
+              duration={500}
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
               Clients
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
+            </Link>
+            <Link
+              to="contact" // Smooth scroll to "contact" section
+              smooth={true}
+              duration={500}
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
               Careers
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -159,18 +168,22 @@ const Navbar = () => {
       {/* Mobile Menu (visible when open) */}
       {isOpen && (
         <nav className="md:hidden bg-white shadow-md">
-          <a
-            href="#home"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
+          <Link
+            to="home"
+            smooth={true}
+            duration={500}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
             Home
-          </a>
-          <a
-            href="#services"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
+          </Link>
+          <Link
+            to="our-services-section"
+            smooth={true}
+            duration={500}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
-            About us
-          </a>
+            Our Services
+          </Link>
 
           {/* Dropdown for Our Horizontals (Mobile) */}
           <div className="relative">
@@ -240,18 +253,22 @@ const Navbar = () => {
             )}
           </div>
 
-          <a
-            href="#about"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
+          <Link
+            to="about"
+            smooth={true}
+            duration={500}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
             Clients
-          </a>
-          <a
-            href="#contact"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
+          </Link>
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
             Careers
-          </a>
+          </Link>
         </nav>
       )}
     </header>

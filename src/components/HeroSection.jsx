@@ -4,6 +4,12 @@ import { faDesktop, faServer, faUsers, faCalendarAlt } from '@fortawesome/free-s
 import CountUp from 'react-countup';
 
 const HeroSection = () => {
+  const scrollToAboutUs = () => {
+    document.getElementById('about-us-section').scrollIntoView({
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <section className="relative flex flex-col md:flex-row items-center justify-between min-h-screen bg-white overflow-hidden">
       {/* Background Overlay */}
@@ -24,8 +30,11 @@ const HeroSection = () => {
               <button className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 hover:scale-105 transition-transform duration-300">
                 Our Works
               </button>
-              <button className="px-6 py-3 bg-transparent border-2 border-gray-800 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-800 hover:text-white hover:scale-105 transition-transform duration-300">
-                Learn More
+              <button
+                onClick={scrollToAboutUs}
+                className="px-6 py-3 bg-transparent border-2 border-gray-800 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-800 hover:text-white hover:scale-105 transition-transform duration-300"
+              >
+                About Us
               </button>
             </div>
           </div>
@@ -34,7 +43,7 @@ const HeroSection = () => {
 
       {/* Client Card Section */}
       <div className="relative w-full md:w-1/3 flex items-center justify-center px-4 md:px-8 py-10 md:py-16 mt-6 md:mt-12">
-        <div className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 md:p-8 shadow-2xl border border-gray-300 w-full max-w-sm min-h-[500px] flex flex-col items-center justify-center space-y-8 hover:scale-105 hover:bg-[wheat] transition-transform duration-300">
+        <div className="bg-gradient-to-br from-[#f5deb3] via-[#f3e5ab] to-[#fdf5e6] p-6 md:p-8 shadow-2xl border border-gray-300 w-full max-w-sm min-h-[500px] flex flex-col items-center justify-center space-y-8 hover:scale-105 transition-transform duration-300">
           {/* Counter-up Components with Icons */}
           <div className="text-center flex flex-col items-center">
             <FontAwesomeIcon icon={faDesktop} className="text-4xl text-gray-800 mb-2" />
