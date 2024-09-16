@@ -69,7 +69,7 @@ const HeroSection = () => {
           <div className="text-center flex flex-col items-center">
             <FontAwesomeIcon icon={faCalendarAlt} className="text-4xl text-gray-800 mb-2" />
             <h4 className="text-3xl font-bold text-gray-800">
-              <CountUp end={18} duration={2} />+
+              <CountUp end={17} duration={2} />+
             </h4>
             <p className="text-gray-600">Years Of Experience</p>
           </div>

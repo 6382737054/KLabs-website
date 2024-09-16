@@ -5,8 +5,10 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutUsSection from './components/AboutUsSection';
 import OurServicesSection from './components/OurServicesSection';
-import Horizontals from './components/Horizontals'; // Import Horizontals component
-import Footer from './components/Footer'; // Import Footer
+import Horizontals from './components/Horizontals';
+import Verticals from './components/Verticals';
+import Clients from './components/Clients';  // Import Clients component
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,26 +16,42 @@ function App() {
       <div className="flex flex-col min-h-screen">
         {/* Navbar */}
         <Navbar />
-        
-        {/* Main content */}
+
+        {/* Main Content */}
         <main className="flex-1">
           <Routes>
+            {/* Home Route */}
             <Route 
               path="/" 
               element={
                 <>
                   <HeroSection />
-                  {/* <OurServicesSection /> Include OurServicesSection here */}
+                  <AboutUsSection />
+                  {/* Uncomment to include OurServicesSection on the homepage */}
+                  {/* <OurServicesSection /> */}
                 </>
               } 
             />
+
+            {/* About Us Page Route */}
             <Route path="/about-us" element={<AboutUsSection />} />
+
+            {/* Our Services Page Route */}
             <Route path="/our-services" element={<OurServicesSection />} />
-            <Route path="/horizontals" element={<Horizontals />} /> {/* Add route for Horizontals */}
-            {/* You can add more routes here if needed */}
+
+            {/* Horizontals Page Route */}
+            <Route path="/horizontals" element={<Horizontals />} />
+
+            {/* Verticals Page Route */}
+            <Route path="/verticals" element={<Verticals />} />
+
+            {/* Clients Page Route */}
+            <Route path="/clients" element={<Clients />} />  {/* Added Clients route */}
+            
+            {/* Add more routes as needed */}
           </Routes>
         </main>
-        
+
         {/* Footer */}
         <Footer />
       </div>

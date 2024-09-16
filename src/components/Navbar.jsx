@@ -1,10 +1,10 @@
-// src/components/Navbar.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Toggle mobile menu open/close
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -15,54 +15,56 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center -ml-6">
-            <img
-              src="Images/klabslogo.png" // Replace with your actual logo path
-              alt="KLABS Logo"
-              className="w-19 h-12"
-            />
+            <Link to="/">
+              <img
+                src="Images/klabslogo.png" // Replace with your actual logo path
+                alt="KLABS Logo"
+                className="w-19 h-12"
+              />
+            </Link>
           </div>
 
-          {/* Nav Links */}
+          {/* Desktop Nav Links */}
           <nav className="hidden md:flex space-x-8 items-center">
             <Link
               to="/"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
               Home
             </Link>
             <Link
               to="/about-us"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
               About Us
             </Link>
             <Link
               to="/our-services"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
               Our Services
             </Link>
             <Link
               to="/horizontals"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
               Our Horizontals
             </Link>
             <Link
               to="/verticals"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
               Our Verticals
             </Link>
             <Link
               to="/clients"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
               Clients
             </Link>
             <Link
               to="/careers"
-              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300"
             >
               Careers
             </Link>
@@ -107,43 +109,50 @@ const Navbar = () => {
         <nav className="md:hidden bg-white shadow-md">
           <Link
             to="/"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+            onClick={toggleMenu}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
             Home
           </Link>
           <Link
             to="/about-us"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+            onClick={toggleMenu}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
             About Us
           </Link>
           <Link
             to="/our-services"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+            onClick={toggleMenu}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
             Our Services
           </Link>
           <Link
             to="/horizontals"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+            onClick={toggleMenu}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
             Our Horizontals
           </Link>
           <Link
             to="/verticals"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+            onClick={toggleMenu}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
             Our Verticals
           </Link>
           <Link
             to="/clients"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+            onClick={toggleMenu}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
             Clients
           </Link>
           <Link
             to="/careers"
-            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+            onClick={toggleMenu}
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300"
           >
             Careers
           </Link>
