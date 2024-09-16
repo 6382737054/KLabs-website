@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { animateScroll as scroll } from 'react-scroll';
+// import { animateScroll as scroll } from 'react-scroll'; // Remove this import if it's not used
 
 const services = [
   { title: 'Web Development', description: 'Building responsive and dynamic websites tailored to your needs.', icon: '🌐', details: 'We build highly scalable web applications using the latest technologies like React, Node.js, and more.', image: 'https://via.placeholder.com/300' },
@@ -18,10 +18,10 @@ const OurServicesSection = () => {
 
   const openModal = (service) => {
     setSelectedService(service);
-    scroll.scrollToBottom({
-      duration: 500,
-      smooth: true,
-    });
+    // scroll.scrollToBottom({ // Comment out or remove this line
+    //   duration: 500,
+    //   smooth: true,
+    // });
   };
 
   const closeModal = () => {
@@ -38,7 +38,7 @@ const OurServicesSection = () => {
     <section id="our-services-section" className="py-16 bg-white">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Services</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-6 mt-4">Our Services</h2>
           <p className="text-lg text-gray-600">
             We offer a wide range of services to help your business thrive in the digital age. Explore our expertise and see how we can assist you in achieving your goals.
           </p>

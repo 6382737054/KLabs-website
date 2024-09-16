@@ -11,7 +11,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-between min-h-screen bg-white overflow-hidden">
+    <section className="relative flex flex-col md:flex-row items-center justify-between min-h-screen bg-white overflow-hidden" id="home">
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-white opacity-90"></div>
 

@@ -92,7 +92,7 @@ const AboutUsSection = () => {
   }, []);
 
   return (
-    <section id="about-us-section" ref={sectionRef} className={`relative bg-gray-50 py-16 ${animationClass}`}>
+    <section id="about-us-section" ref={sectionRef} className={`relative bg-gray-50 py-16 pt-24 ${animationClass}`}>
       <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
         {/* Content Area */}
         <div className="flex flex-col items-center">
@@ -104,7 +104,6 @@ const AboutUsSection = () => {
               <br /><br />
               Since our inception, we have undertaken numerous high-profile projects, including significant government contracts, demonstrating our ability to handle large-scale and critical assignments with precision and efficiency. Our team of dedicated professionals employs state-of-the-art technology and best practices to ensure the highest standards of quality and security. We are proud of our track record and continue to push the boundaries of what is possible in the IT landscape.
               <br /><br />
-              
             </p>
           </div>
 
@@ -114,7 +113,7 @@ const AboutUsSection = () => {
               <button
                 key={key}
                 onClick={() => handleContentChange(key)}
-                className={`px-6 py-3 text-lg font-semibold rounded-lg transition-transform duration-300 ease-in-out ${activeContent === key ? 'bg-gradient-to-r from-orange-300 to-orange-500 text-white shadow-lg' : 'bg-gradient-to-r from-orange-100 to-orange-300 text-gray-800 hover:from-orange-200 hover:to-orange-400'} hover:scale-105`}
+                className={`flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-lg transition-transform duration-300 ease-in-out ${activeContent === key ? 'bg-gradient-to-r from-orange-300 to-orange-500 text-white shadow-lg' : 'bg-gradient-to-r from-orange-100 to-orange-300 text-gray-800 hover:from-orange-200 hover:to-orange-400'} hover:scale-105 h-12`}
               >
                 {content[key].title}
               </button>

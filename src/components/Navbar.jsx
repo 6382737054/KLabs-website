@@ -1,16 +1,12 @@
+// src/components/Navbar.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-scroll'; // Import Link from react-scroll
+import { Link } from 'react-router-dom'; // Import Link for navigation
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
-
-  const toggleDropdown = (dropdown) => {
-    setDropdownOpen(dropdownOpen === dropdown ? null : dropdown);
   };
 
   return (
@@ -29,102 +25,43 @@ const Navbar = () => {
           {/* Nav Links */}
           <nav className="hidden md:flex space-x-8 items-center">
             <Link
-              to="home" // Smooth scroll to "home" section
-              smooth={true}
-              duration={500}
+              to="/"
               className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
               Home
             </Link>
             <Link
-              to="our-services-section" // Smooth scroll to "Our Services" section
-              smooth={true}
-              duration={500}
+              to="/about-us"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+            >
+              About Us
+            </Link>
+            <Link
+              to="/our-services"
               className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
               Our Services
             </Link>
-
-            {/* Dropdown for Our Horizontals */}
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('horizontals')}
-                className="flex items-center text-gray-800 hover:text-orange-600 transition-colors duration-300 focus:outline-none"
-              >
-                Our Horizontals
-                <svg
-                  className={`w-4 h-4 ml-1 transition-transform transform ${
-                    dropdownOpen === 'horizontals' ? 'rotate-180' : ''
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {dropdownOpen === 'horizontals' && (
-                <div className="absolute mt-2 w-48 bg-white shadow-lg rounded-md py-2">
-                  {['Horizontal 1', 'Horizontal 2', 'Horizontal 3', 'Horizontal 4', 'Horizontal 5', 'Horizontal 6', 'Horizontal 7'].map((item, index) => (
-                    <a
-                      key={index}
-                      href={`#horizontal${index + 1}`}
-                      className="block px-4 py-2 text-gray-800 hover:bg-blue-100"
-                    >
-                      {item}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Dropdown for Our Verticals */}
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('verticals')}
-                className="flex items-center text-gray-800 hover:text-orange-600 transition-colors duration-300 focus:outline-none"
-              >
-                Our Verticals
-                <svg
-                  className={`w-4 h-4 ml-1 transition-transform transform ${
-                    dropdownOpen === 'verticals' ? 'rotate-180' : ''
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {dropdownOpen === 'verticals' && (
-                <div className="absolute mt-2 w-48 bg-white shadow-lg rounded-md py-2">
-                  {['Vertical 1', 'Vertical 2', 'Vertical 3', 'Vertical 4', 'Vertical 5', 'Vertical 6', 'Vertical 7'].map((item, index) => (
-                    <a
-                      key={index}
-                      href={`#vertical${index + 1}`}
-                      className="block px-4 py-2 text-gray-800 hover:bg-blue-100"
-                    >
-                      {item}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-
             <Link
-              to="about" // Smooth scroll to "about" section
-              smooth={true}
-              duration={500}
+              to="/horizontals"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+            >
+              Our Horizontals
+            </Link>
+            <Link
+              to="/verticals"
+              className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
+            >
+              Our Verticals
+            </Link>
+            <Link
+              to="/clients"
               className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
               Clients
             </Link>
             <Link
-              to="contact" // Smooth scroll to "contact" section
-              smooth={true}
-              duration={500}
+              to="/careers"
               className="text-gray-800 hover:text-orange-600 transition-colors duration-300 cursor-pointer"
             >
               Careers
@@ -169,102 +106,43 @@ const Navbar = () => {
       {isOpen && (
         <nav className="md:hidden bg-white shadow-md">
           <Link
-            to="home"
-            smooth={true}
-            duration={500}
+            to="/"
             className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
             Home
           </Link>
           <Link
-            to="our-services-section"
-            smooth={true}
-            duration={500}
+            to="/about-us"
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+          >
+            About Us
+          </Link>
+          <Link
+            to="/our-services"
             className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
             Our Services
           </Link>
-
-          {/* Dropdown for Our Horizontals (Mobile) */}
-          <div className="relative">
-            <button
-              onClick={() => toggleDropdown('horizontals')}
-              className="flex items-center w-full text-gray-800 hover:text-orange-600 px-4 py-2 transition-colors duration-300 focus:outline-none"
-            >
-              Our Horizontals
-              <svg
-                className={`w-4 h-4 ml-1 transition-transform transform ${
-                  dropdownOpen === 'horizontals' ? 'rotate-180' : ''
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {dropdownOpen === 'horizontals' && (
-              <div className="mt-2 pl-4">
-                {['Horizontal 1', 'Horizontal 2', 'Horizontal 3', 'Horizontal 4', 'Horizontal 5', 'Horizontal 6', 'Horizontal 7'].map((item, index) => (
-                  <a
-                    key={index}
-                    href={`#horizontal${index + 1}`}
-                    className="block px-4 py-2 text-gray-800 hover:bg-blue-100"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Dropdown for Our Verticals (Mobile) */}
-          <div className="relative">
-            <button
-              onClick={() => toggleDropdown('verticals')}
-              className="flex items-center w-full text-gray-800 hover:text-orange-600 px-4 py-2 transition-colors duration-300 focus:outline-none"
-            >
-              Our Verticals
-              <svg
-                className={`w-4 h-4 ml-1 transition-transform transform ${
-                  dropdownOpen === 'verticals' ? 'rotate-180' : ''
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {dropdownOpen === 'verticals' && (
-              <div className="mt-2 pl-4">
-                {['Vertical 1', 'Vertical 2', 'Vertical 3', 'Vertical 4', 'Vertical 5', 'Vertical 6', 'Vertical 7'].map((item, index) => (
-                  <a
-                    key={index}
-                    href={`#vertical${index + 1}`}
-                    className="block px-4 py-2 text-gray-800 hover:bg-blue-100"
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-
           <Link
-            to="about"
-            smooth={true}
-            duration={500}
+            to="/horizontals"
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+          >
+            Our Horizontals
+          </Link>
+          <Link
+            to="/verticals"
+            className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
+          >
+            Our Verticals
+          </Link>
+          <Link
+            to="/clients"
             className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
             Clients
           </Link>
           <Link
-            to="contact"
-            smooth={true}
-            duration={500}
+            to="/careers"
             className="block px-4 py-2 text-gray-800 hover:bg-blue-100 transition-colors duration-300 cursor-pointer"
           >
             Careers
