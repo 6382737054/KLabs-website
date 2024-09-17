@@ -4,6 +4,15 @@ import { faDesktop, faServer, faUsers, faCalendarAlt } from '@fortawesome/free-s
 import CountUp from 'react-countup';
 
 const HeroSection = () => {
+  const scrollToClients = () => {
+    const element = document.getElementById('clients-section');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  };
+
   const scrollToAboutUs = () => {
     document.getElementById('about-us-section').scrollIntoView({
       behavior: 'smooth'
@@ -27,8 +36,11 @@ const HeroSection = () => {
               At K Labs, we empower your growth with uniquely tailored software solutions.
             </p>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-              <button className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 hover:scale-105 transition-transform duration-300">
-                Our Works
+              <button
+                onClick={scrollToClients}
+                className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 hover:scale-105 transition-transform duration-300"
+              >
+                Our Clients
               </button>
               <button
                 onClick={scrollToAboutUs}

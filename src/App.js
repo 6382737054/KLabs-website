@@ -9,6 +9,7 @@ import Horizontals from './components/Horizontals';
 import Verticals from './components/Verticals';
 import Clients from './components/Clients';  // Import Clients component
 import Footer from './components/Footer';
+import OurWork from './components/OurWork';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
                 <>
                   <HeroSection />
                   <AboutUsSection />
+                  <OurWork/>
+                  <Clients/>
                   {/* Uncomment to include OurServicesSection on the homepage */}
                   {/* <OurServicesSection /> */}
                 </>

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Parallax } from 'react-parallax';
 
 const Verticals = () => {
   const numItems = 8; // Number of vertical items
@@ -53,25 +54,30 @@ const Verticals = () => {
       <h1 className="text-3xl font-bold text-gray-800 mb-12 text-center">Our Verticals</h1>
 
       {content.map((item, index) => (
-        <div
+        <Parallax
           key={index}
-          ref={el => refs.current[index] = el}
-          className={`flex flex-col items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} transition-transform transform-gpu duration-1000 ease-out ${
+          strength={300}
+          className={`transition-transform transform-gpu duration-1000 ease-out ${
             inView[index] ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'
           }`}
         >
-          <img
-            src={item.imgSrc}
-            alt={`Vertical ${index}`}
-            className="w-full sm:w-1/2 h-auto object-cover rounded-lg shadow-lg mb-4"
-          />
-          <div className="w-full sm:w-1/2 p-4">
-            <h2 className="text-xl font-semibold text-gray-700 mb-2">{item.heading}</h2>
-            <p className="text-lg leading-relaxed text-gray-800">
-              {item.text}
-            </p>
+          <div
+            ref={el => refs.current[index] = el}
+            className={`flex flex-col items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} mb-12`}
+          >
+            <img
+              src={item.imgSrc}
+              alt={`Vertical ${index}`}
+              className="w-full sm:w-1/2 h-auto object-cover rounded-lg shadow-lg mb-4"
+            />
+            <div className="w-full sm:w-1/2 p-4">
+              <h2 className="text-xl font-semibold text-gray-700 mb-2">{item.heading}</h2>
+              <p className="text-lg leading-relaxed text-gray-800">
+                {item.text}
+              </p>
+            </div>
           </div>
-        </div>
+        </Parallax>
       ))}
     </div>
   );
