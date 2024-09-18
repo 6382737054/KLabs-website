@@ -55,7 +55,7 @@ const HeroSection = () => {
 
       {/* Client Card Section */}
       <div className="relative w-full md:w-1/3 flex items-center justify-center px-4 md:px-8 py-10 md:py-16 mt-6 md:mt-12">
-        <div className="bg-gradient-to-br from-[#f5deb3] via-[#f3e5ab] to-[#fdf5e6] p-6 md:p-8 shadow-2xl border border-gray-300 w-full max-w-sm min-h-[500px] flex flex-col items-center justify-center space-y-8 hover:scale-105 transition-transform duration-300">
+        <div className="bg-gradient-to-br from-[#f5deb3] via-[#f3e5ab] to-[#fdf5e6] p-6 md:p-8 shadow-2xl border border-white-300 w-full max-w-sm min-h-[500px] flex flex-col items-center justify-center space-y-8 hover:scale-105 transition-transform duration-300">
           {/* Counter-up Components with Icons */}
           <div className="text-center flex flex-col items-center">
             <FontAwesomeIcon icon={faDesktop} className="text-4xl text-gray-800 mb-2" />

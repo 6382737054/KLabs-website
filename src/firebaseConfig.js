@@ -1,18 +1,24 @@
+// firebaseConfig.js
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
+import { getFunctions } from 'firebase/functions';
 
-// Your web app's Firebase configuration
+// Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: 'AIzaSyDjLKb-HgOo6Q8hkArdj1SXWIY7RyDGRUc',
+  authDomain: 'k-labs-website.firebaseapp.com',
+  projectId: 'k-labs-website',
+  storageBucket: 'k-labs-website.appspot.com',
+  messagingSenderId: '27310323602',
+  appId: '1:27310323602:web:cee7b5b83b9b9fbbce334b',
+  measurementId: 'G-F47XC536LS'
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
 
-export { storage };
+// Initialize Firebase services
+const storage = getStorage(app);
+const functions = getFunctions(app);
+
+export { storage, functions };

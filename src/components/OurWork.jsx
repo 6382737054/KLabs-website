@@ -88,7 +88,7 @@ const OurWork = () => {
   return (
     <section className="py-16 px-8 bg-gray-100 relative">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-12">Our Work</h2>
+        <h2 className="text-4xl font-bold text-gray-800 mb-12">Our Works</h2>
         <div className="relative px-10">
           <Slider {...sliderSettings} className="relative">
             {projects.map((project, index) => (
