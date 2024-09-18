@@ -20,7 +20,7 @@ const clients = [
 const PrevArrow = (props) => {
   const { className, onClick } = props;
   return (
-    <div className={`${className} text-gray-800`} onClick={onClick}>
+    <div className={`${className} absolute top-1/2 transform -translate-y-1/2 left-4 cursor-pointer bg-gray-800 text-white rounded-full p-2`} onClick={onClick}>
       <FaChevronLeft size={30} />
     </div>
   );
@@ -29,7 +29,7 @@ const PrevArrow = (props) => {
 const NextArrow = (props) => {
   const { className, onClick } = props;
   return (
-    <div className={`${className} text-gray-800`} onClick={onClick}>
+    <div className={`${className} absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer bg-gray-800 text-white rounded-full p-2`} onClick={onClick}>
       <FaChevronRight size={30} />
     </div>
   );
@@ -72,10 +72,10 @@ const Clients = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50" id="clients-section"> {/* Ensure ID is here */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-20 bg-gray-50" id="clients-section">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-extrabold text-gray-900 mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Our Esteemed Clients
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -83,11 +83,11 @@ const Clients = () => {
           </p>
         </div>
 
-        <div className="client-carousel">
+        <div className="relative">
           <Slider {...sliderSettings}>
             {clients.map((client, index) => (
               <div key={index} className="p-4">
-                <div className="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105">
+                <div className="bg-white shadow-lg rounded-lg p-6 text-center transition-transform hover:scale-105 hover:shadow-xl">
                   {/* Client Logo */}
                   <img
                     src={client.logo}

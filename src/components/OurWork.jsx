@@ -37,7 +37,7 @@ const OurWork = () => {
     const { onClick } = props;
     return (
       <div
-        className="absolute top-1/2 left-[-40px] transform -translate-y-1/2 z-10 cursor-pointer"
+        className="absolute top-1/2 left-[-50px] transform -translate-y-1/2 z-10 cursor-pointer bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition duration-300"
         onClick={onClick}
       >
         <FaChevronLeft size={30} className="text-gray-800" />
@@ -49,7 +49,7 @@ const OurWork = () => {
     const { onClick } = props;
     return (
       <div
-        className="absolute top-1/2 right-[-40px] transform -translate-y-1/2 z-10 cursor-pointer"
+        className="absolute top-1/2 right-[-50px] transform -translate-y-1/2 z-10 cursor-pointer bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition duration-300"
         onClick={onClick}
       >
         <FaChevronRight size={30} className="text-gray-800" />
@@ -88,23 +88,23 @@ const OurWork = () => {
   return (
     <section className="py-16 px-8 bg-gray-100 relative">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-12">Our Works</h2>
-        <div className="relative px-10">
-          <Slider {...sliderSettings} className="relative">
+        <h2 className="text-4xl font-bold text-gray-800 mb-12">Our Work</h2>
+        <div className="relative">
+          <Slider {...sliderSettings}>
             {projects.map((project, index) => (
               <div key={index} className="px-4">
-                <div className="bg-white rounded-lg shadow-md overflow-hidden group transition-transform transform hover:scale-105 h-[400px] flex flex-col">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105 duration-500">
                   <div className="relative h-64 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-gray-200 opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
                     <img
                       src={project.imgSrc}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform transform group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform transform group-hover:scale-110"
                     />
                   </div>
                   <div className="p-6 flex-grow flex flex-col justify-between">
-                    <h3 className="text-2xl font-semibold text-gray-800 mb-2 line-clamp-1">{project.title}</h3>
-                    <p className="text-gray-600 line-clamp-3">{project.description}</p>
+                    <h3 className="text-2xl font-semibold text-gray-800 mb-2">{project.title}</h3>
+                    <p className="text-gray-600">{project.description}</p>
                   </div>
                 </div>
               </div>
